@@ -12,6 +12,14 @@ f = False
 
 # ****Print
 print (c + "larga")
+print ""
+#Print fecha y hora actual, fecha %d/%m/%y y para la hora %H:%M:%S
+import time
+print time.strftime("%d/%m/%y %H:%M:%S")
+print ""
+print("Un tipo le dice a otro: \"¿Cómo estás?\"")
+print('Y el otro le contesta: \'¡Pues anda que tú!\'')
+print ""
 
 # ****Exponente **
 print (2 ** 6)
@@ -27,6 +35,7 @@ else:
     print("la variable es igual a 23")
 print("fin")
 
+#***********************************************************************************************************************
 # ****LISTAS o arrays (colecciones)
 a = [1, 3, 5]
 print(a)
@@ -64,10 +73,12 @@ print(c[5:])
 print(c[::3])
 print(c[3:9])
 
+#***********************************************************************************************************************
 # ****Diccionarios o Matrices
 d = {"Love Actually": "Richard Curtis", "Kill Bill": "Tarantino", "Amelie": "Jean-Pierre Jeunet"}
 d["Love Actually"]  # devuelve "Richard Curtis"
 
+#***********************************************************************************************************************
 # ****SENTENCIAS
 # If/else
 fav = "tuia"
@@ -207,6 +218,7 @@ class Coche:
             print "Quedan", self.gasolina, "litros"
         else:
             print "No se mueve"
+print ""
 
 #Lo primero que llama la atención en el ejemplo anterior es el nombre tan curioso que tiene el método __init__.
 # Este nombre es una convención y no un capricho. El método __init__, con una doble barra baja al principio y
@@ -222,3 +234,77 @@ class Coche:
 # entre paréntesis. Estos parámetros son los que se pasarán al método __init__, que como decíamos es el método
 # que se llama al instanciar la clase.
 mi_coche = Coche (3)
+print mi_coche.gasolina
+#Arranca
+mi_coche.arrancar()
+#Quedan 2 litros
+mi_coche.conducir()
+#Queda 1 litro
+mi_coche.conducir()
+#Quedan 0 litros
+mi_coche.conducir()
+#No se mueve
+mi_coche.arrancar()
+#No arranca
+print mi_coche.gasolina
+print ""
+
+#OTROS:
+#Uper para devolver texto en mayúsculas
+cad= "cadena de caracteres"
+print cad.upper()
+
+#count(sub) para devolver número de veces que se encontró la cadena sub en el texto
+print cad.count("a")
+print ""
+
+#***********************************************************************************************************************
+#(encapsulamiento, la herencia (heredar o extender de una clase) y el polimorfismo.)
+
+#HERENCIA
+
+#Para indicar que una clase hereda de otra se coloca el nombre de la cla- se de la que se hereda
+# entre paréntesis después del nombre de la clase:
+class Instrumento:
+    def __init__(self, precio):
+        self.precio = precio
+    #Método tocar
+    def tocar (self):
+        print "Estamostocando musica"
+     #Método romper
+    def romper(self):
+        print "Eso lo pagas tu"
+        print "Son", self.precio, "$$$"
+
+class Bateria (Instrumento):
+    pass
+
+class Guitarra (Instrumento):
+    pass
+#Como Bateria y Guitarra heredan de Instrumento, ambos tienen un método tocar() y un método romper()
+
+#Se puede sobreescribir métodos: por ejemplo si quisieramos especificar un nuevo parámetro tipo_cuerda a la hora de
+#crear un objeto Guitarra. Tendríamos que escribir un nuevo método __init__ para la clase Guitarra
+#Eje: Instrumento.__init__(self, precio)
+
+#Herencia múltiple:
+#or ejemplo, podríamos tener una clase Cocodrilo que heredara de la clase Terrestre, con métodos como caminar()
+# y atributos como velocidad_caminar y de la clase Acuatico, con métodos como nadar() y atributos como velocidad_nadar
+class Terrestre:
+    def desplazar(self):
+        print "El animal anda"
+
+class Acuatico:
+    def desplazar(self):
+        print "El animal nada"
+
+class Cocodrilo (Terrestre, Acuatico):
+    pass
+#omo Terrestre se encuentra más a la iz- quierda, sería la definición de desplazar de esta clase la que prevale- cería,
+# y por lo tanto si llamamos al método desplazar de un objeto de tipo Cocodrilo lo que se imprimiría sería “El animal anda”.
+c = Cocodrilo()
+c.desplazar()
+
+#***********************************************************************************************************************
+#POLIMORFISMO
+47
